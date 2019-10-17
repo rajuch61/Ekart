@@ -5,13 +5,13 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class APIService {
-  private url = 'http://10.109.68.29:3000/products';
+  private url = 'http://localhost:3000/products';
 
   constructor(private http: HttpClient) {  }
   getProducts() {
     return this.http.get(this.url);
   }
-  inserProduct(prodcut) {
+  insertProduct(prodcut) {
     return this.http.post(this.url, prodcut);
   }
 }

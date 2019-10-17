@@ -6,10 +6,10 @@ import { Router } from '@angular/router';
   providedIn: 'root'
 })
 export class AuthService {
-
+  url = 'http://localhost:3000/users';
   constructor(private http: HttpClient) { }
   login(credentials) {
-    return this.http.post('http://10.109.68.29:3000/login', credentials);
+    return this.http.post(this.url, credentials);
   }
 
   logOut(credentials) {

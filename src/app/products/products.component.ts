@@ -25,7 +25,7 @@ export class ProductsComponent implements OnInit {
       id: this.products.length + 1,
       name: prdouctName.value
     };
-    this.api.inserProduct(product).subscribe(data => {
+    this.api.insertProduct(product).subscribe(data => {
       console.log(data);
     });
     this.products.splice(0, 0, product);
