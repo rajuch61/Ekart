@@ -35,7 +35,7 @@ export class AuthService {
   currentUser(): any {
     const token = localStorage.getItem('token');
     if (token && JSON.parse(token).name) {
-      console.log(JSON.parse(token).name);
+      // console.log(JSON.parse(token).name);
       return JSON.parse(token).name;
     }
   }

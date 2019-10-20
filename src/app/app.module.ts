@@ -23,6 +23,7 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { AdminAuthGuard } from './services/admin-auth-guard.service';
 import { NotAuthorisedComponent } from './not-authorised/not-authorised.component';
+import { ProductFormComponent } from './admin/product-form/product-form.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import { NotAuthorisedComponent } from './not-authorised/not-authorised.componen
     LoginComponent,
     RegisterComponent,
     NotAuthorisedComponent,
+    ProductFormComponent,
   ],
   imports: [
     BrowserModule,
@@ -58,7 +60,8 @@ import { NotAuthorisedComponent } from './not-authorised/not-authorised.componen
       { path: 'order-sucess', component: OrderSuccessComponent, canActivate: [AuthGuard] },
 
       { path: 'admin/products', component: AdminProductsComponent, canActivate: [AdminAuthGuard] },
-      { path: 'admin/orders', component: AdminOrdersComponent, canActivate: [AdminAuthGuard] }
+      { path: 'admin/orders', component: AdminOrdersComponent, canActivate: [AdminAuthGuard] },
+      { path: 'admin/products/new', component: ProductFormComponent, canActivate: [AdminAuthGuard]}
     ])
   ],
   providers: [APIService, AuthService, AuthGuard, AdminAuthGuard],

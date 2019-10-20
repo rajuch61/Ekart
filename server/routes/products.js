@@ -14,16 +14,21 @@ router.use(function (req, res, next) {
 });
 
 const productSchema = mongos.Schema({
-  "id" : {type: String, required: true},
-  "name" :  {type: String, required: true, minlength: 5}
-  // "category" : {type: String, required: true, enumL: ['Electronics', 'fashion']}
+  // "id" : {type: String, required: true},
+  "name" :  {type: String, required: true, minlength: 5},
+  "price" : {type: String},
+  "category" : {type: String},
+  "imageUrl" : {type: String}
 });
 const Product = mongos.model('Product', productSchema);
 
 router.post('/', async(req, res)=> {
     const product = new Product({
-        id: req.body.id,
-        name: req.body.name
+        // id: req.body.id,
+        name: req.body.name,
+        price: req.body.price,
+        category: req.body.category,
+        imageUrl: req.body.imageUrl
     });
     // await product.validate();
     try{
@@ -32,7 +37,7 @@ router.post('/', async(req, res)=> {
     }
     catch (ex) {
         console.log(ex);
-        // res.send(ex.message);
+        res.send(ex.message);
     }
 });
 router.get('/', async(req, res)=> {
