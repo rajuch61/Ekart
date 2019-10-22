@@ -4,6 +4,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
+import { CustomFormsModule } from 'ng2-validation';
 
 import { AppRoutingModule } from './app-routing.module';
 import { APIService } from './services/api.service';
@@ -48,6 +49,7 @@ import { ProductFormComponent } from './admin/product-form/product-form.componen
     NgbModule,
     AppRoutingModule,
     FormsModule,
+    CustomFormsModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent },
       { path: 'products', component: ProductsComponent },
