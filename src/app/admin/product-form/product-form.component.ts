@@ -1,7 +1,8 @@
 import { logging } from 'protractor';
 import { Component, OnInit } from '@angular/core';
 import { APIService } from 'src/app/services/api.service';
-import { Router } from '@angular/router';
+import { Router, Route, ActivatedRoute } from '@angular/router';
+// import 'rxjs/add/operator/take'
 
 @Component({
   selector: 'app-product-form',
@@ -9,8 +10,14 @@ import { Router } from '@angular/router';
   styleUrls: ['./product-form.component.css']
 })
 export class ProductFormComponent implements OnInit {
-
-  constructor(private api: APIService, private router: Router) { }
+  product = {};
+  constructor(private api: APIService, private router: Router, private route: ActivatedRoute) {
+    let id = this.route.snapshot.paramMap.get('id');
+    if(id) this.api.getProduct(id).subscribe(p => {
+      this.product = p;
+      // console.log(p);
+    })
+  }
 
   ngOnInit() {
   }

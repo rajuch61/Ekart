@@ -11,6 +11,11 @@ export class APIService {
   getProducts() {
     return this.http.get(this.url);
   }
+
+  getProduct(id){
+    return this.http.get(this.url + "/" + id);
+  }
+  
   insertProduct(prodcut) {
     return this.http.post(this.url, prodcut);
   }

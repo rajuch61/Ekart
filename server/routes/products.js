@@ -44,5 +44,8 @@ router.get('/', async(req, res)=> {
     const result = await Product.find();
     res.send(result);
 });
-
+router.get('/:id', async(req, res)=> {
+    const result = await Product.findById(req.params.id);
+    res.send(result);
+});
 module.exports = router;
