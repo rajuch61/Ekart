@@ -48,4 +48,17 @@ router.get('/:id', async(req, res)=> {
     const result = await Product.findById(req.params.id);
     res.send(result);
 });
+router.put('/:id', async(req, res) => {
+    // const result = await Product.findById(req.params.id);
+    const result = await Product.update({_id: req.params.id}, {$set: req.body}); 
+    res.send(result);
+});
+
+router.delete('/:id', async(req, res) => {
+    const course = await Product.findById(req.params.id);
+    if(!course) res.send('404 Not found');
+    const result = await Product.deleteOne({_id: req.params.id}); 
+    res.send(result);
+});
+
 module.exports = router;

@@ -15,8 +15,16 @@ export class APIService {
   getProduct(id){
     return this.http.get(this.url + "/" + id);
   }
-  
+
   insertProduct(prodcut) {
     return this.http.post(this.url, prodcut);
+  }
+
+  updateProduct(prodcut) {
+    return this.http.put(this.url + "/" + prodcut._id, prodcut);
+  }
+
+  deleteProduct(prodcutId){
+    return this.http.delete(this.url + "/" + prodcutId);
   }
 }
